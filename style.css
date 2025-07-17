@@ -1,0 +1,58 @@
+body {
+  background-color: #fce4ec;
+  font-family: 'Arial', sans-serif;
+  color: #581845;
+  padding: 20px;
+}
+
+h1 {
+  color: #800020;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.curso {
+  border: 2px solid #800020;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.curso.activo {
+  opacity: 1;
+  background-color: #fbe9e7;
+}
+
+.curso.completado {
+  background-color: #800020;
+  color: white;
+}
+
+button {
+  margin-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #581845;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
