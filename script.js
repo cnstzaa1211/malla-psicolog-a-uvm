@@ -1,98 +1,161 @@
-const ramos = [
-  // SEMESTRE 1
-  {sem: 1, codigo: 'TIF', nombre: 'Taller de Introducción a la Profesión', prerreq: []},
-  {sem: 1, codigo: 'CSO', nombre: 'Construcción del Sujeto de Observación', prerreq: []},
-  {sem: 1, codigo: 'COM1', nombre: 'Comunicación Oral y Escrita I', prerreq: []},
-  {sem: 1, codigo: 'FILSOC', nombre: 'Filosofía y Sociedad', prerreq: []},
-  
-  // SEMESTRE 2
-  {sem: 2, codigo: 'TIP', nombre: 'Taller de Introducción a la Psicología', prerreq: ['TIF']},
-  {sem: 2, codigo: 'PSIG', nombre: 'Psicología General', prerreq: []},
-  {sem: 2, codigo: 'HISTPSI', nombre: 'Historia de la Psicología', prerreq: []},
-  {sem: 2, codigo: 'COM2', nombre: 'Comunicación Oral y Escrita II', prerreq: ['COM1']},
-
-  // SEMESTRE 3
-  {sem: 3, codigo: 'PSF', nombre: 'Psicofisiología', prerreq: ['PSIG']},
-  {sem: 3, codigo: 'EDU', nombre: 'Psicología Educacional', prerreq: ['PSIG']},
-  {sem: 3, codigo: 'DESA1', nombre: 'Psicología del Desarrollo I', prerreq: ['PSIG']},
-  {sem: 3, codigo: 'ING1', nombre: 'Inglés I', prerreq: []},
-
-  // SEMESTRE 4
-  {sem: 4, codigo: 'PSCL', nombre: 'Psicología Clínica', prerreq: ['PSIG']},
-  {sem: 4, codigo: 'SOC', nombre: 'Psicología Social', prerreq: ['PSIG']},
-  {sem: 4, codigo: 'DESA2', nombre: 'Psicología del Desarrollo II', prerreq: ['DESA1']},
-  {sem: 4, codigo: 'ING2', nombre: 'Inglés II', prerreq: ['ING1']},
-
-  // SEMESTRE 5
-  {sem: 5, codigo: 'PSORG', nombre: 'Psicología Organizacional', prerreq: ['PSIG']},
-  {sem: 5, codigo: 'MET1', nombre: 'Metodología de la Investigación I', prerreq: []},
-  {sem: 5, codigo: 'EVAL1', nombre: 'Evaluación Psicológica I', prerreq: ['PSCL']},
-  {sem: 5, codigo: 'ING3', nombre: 'Inglés III', prerreq: ['ING2']},
-
-  // SEMESTRE 6
-  {sem: 6, codigo: 'MET2', nombre: 'Metodología de la Investigación II', prerreq: ['MET1']},
-  {sem: 6, codigo: 'EVAL2', nombre: 'Evaluación Psicológica II', prerreq: ['EVAL1']},
-  {sem: 6, codigo: 'NEURO', nombre: 'Neuropsicología', prerreq: ['PSF']},
-  {sem: 6, codigo: 'ING4', nombre: 'Inglés IV', prerreq: ['ING3']},
-
-  // SEMESTRE 7
-  {sem: 7, codigo: 'PSICO', nombre: 'Psicometría', prerreq: ['EVAL2', 'MET2']},
-  {sem: 7, codigo: 'PSCOM', nombre: 'Psicología Comunitaria', prerreq: ['SOC']},
-  {sem: 7, codigo: 'PSCUL', nombre: 'Psicología Cultural', prerreq: []},
-  {sem: 7, codigo: 'OPT1', nombre: 'Optativo I', prerreq: []},
-
-  // SEMESTRE 8
-  {sem: 8, codigo: 'ETICA', nombre: 'Ética Profesional', prerreq: []},
-  {sem: 8, codigo: 'TRS1', nombre: 'Taller de Resolución de Situaciones I', prerreq: []},
-  {sem: 8, codigo: 'EPI', nombre: 'Epistemología', prerreq: []},
-  {sem: 8, codigo: 'OPT2', nombre: 'Optativo II', prerreq: []},
+const malla = [
+  {
+    nombre: "Semestre I",
+    ramos: [
+      { nombre: "Fundamentos Filosóficos de la Psicología", creditos: 4 },
+      { nombre: "Psicología del Desarrollo I", creditos: 4 },
+      { nombre: "Bases Biológicas del Comportamiento", creditos: 4 },
+      { nombre: "Habilidades de Comunicación Efectiva", creditos: 4 },
+      { nombre: "Taller de Introducción a la Profesión", creditos: 4 },
+    ],
+  },
+  {
+    nombre: "Semestre II",
+    ramos: [
+      { nombre: "Psicología del Desarrollo II", creditos: 4 },
+      { nombre: "Psicología Social", creditos: 4 },
+      { nombre: "Taller de Introducción a la Psicología General", creditos: 4 },
+      { nombre: "Bases Filosóficas y Epistemológicas", creditos: 4 },
+      { nombre: "Contexto Histórico de la Psicología", creditos: 4 },
+    ],
+  },
+  {
+    nombre: "Semestre III",
+    ramos: [
+      { nombre: "Psicología de la Personalidad", creditos: 4 },
+      { nombre: "Teorías y Sistemas Psicológicos", creditos: 4 },
+      { nombre: "Taller de Desarrollo Personal", creditos: 4 },
+      { nombre: "Inglés I", creditos: 2 },
+      { nombre: "Psicofisiología", creditos: 4 },
+    ],
+  },
+  {
+    nombre: "Semestre IV",
+    ramos: [
+      { nombre: "Psicopatología I", creditos: 4 },
+      { nombre: "Neuropsicología", creditos: 4, prerrequisito: "Psicofisiología" },
+      { nombre: "Metodología de la Investigación I", creditos: 4 },
+      { nombre: "Inglés II", creditos: 2 },
+      { nombre: "Taller de Desarrollo Comunitario", creditos: 4 },
+    ],
+  },
+  {
+    nombre: "Semestre V",
+    ramos: [
+      { nombre: "Psicopatología II", creditos: 4 },
+      { nombre: "Evaluación Psicológica I", creditos: 4 },
+      { nombre: "Psicología Educacional", creditos: 4 },
+      { nombre: "Inglés III", creditos: 2 },
+      { nombre: "Metodología de la Investigación II", creditos: 4 },
+    ],
+  },
+  {
+    nombre: "Semestre VI",
+    ramos: [
+      { nombre: "Evaluación Psicológica II", creditos: 4 },
+      { nombre: "Técnicas de Intervención Psicoterapéutica I", creditos: 4 },
+      { nombre: "Psicología Organizacional", creditos: 4 },
+      { nombre: "Psicología Jurídica", creditos: 4 },
+      { nombre: "Inglés IV", creditos: 2 },
+    ],
+  },
+  {
+    nombre: "Semestre VII",
+    ramos: [
+      { nombre: "Psicometría", creditos: 4 },
+      { nombre: "Técnicas de Intervención Psicoterapéutica II", creditos: 4 },
+      { nombre: "Optativo Profesional I", creditos: 4 },
+      { nombre: "Ética Profesional", creditos: 4 },
+      { nombre: "Taller de Integración I", creditos: 4 },
+    ],
+  },
+  {
+    nombre: "Semestre VIII",
+    ramos: [
+      { nombre: "Intervención en Crisis", creditos: 4 },
+      { nombre: "Optativo Profesional II", creditos: 4 },
+      { nombre: "Evaluación de Intervenciones Psicológicas", creditos: 4 },
+      { nombre: "Taller de Integración II", creditos: 4 },
+      { nombre: "Práctica Profesional I", creditos: 10 },
+    ],
+  },
+  {
+    nombre: "Semestre IX",
+    ramos: [
+      { nombre: "Seminario de Tesis I", creditos: 4 },
+      { nombre: "Supervisión de Práctica Profesional I", creditos: 6 },
+      { nombre: "Práctica Profesional II", creditos: 10 },
+    ],
+  },
+  {
+    nombre: "Semestre X",
+    ramos: [
+      { nombre: "Seminario de Tesis II", creditos: 4 },
+      { nombre: "Supervisión de Práctica Profesional II", creditos: 6 },
+      { nombre: "Práctica Profesional III", creditos: 10 },
+    ],
+  },
 ];
 
+let totalCreditos = 0;
+let cursados = new Set();
+
 function crearMalla() {
-  const mallaDiv = document.getElementById('malla');
-  const avanceDiv = document.getElementById('avance');
-  const alertaDiv = document.getElementById('alerta');
-  const ramosCursados = new Set();
+  const contenedor = document.getElementById("malla");
+  malla.forEach((semestre) => {
+    const columna = document.createElement("div");
+    columna.className = "semestre";
+    const titulo = document.createElement("h2");
+    titulo.textContent = semestre.nombre;
+    columna.appendChild(titulo);
 
-  const total = ramos.length;
-  const columnas = {};
+    semestre.ramos.forEach((ramo) => {
+      totalCreditos += ramo.creditos;
+      const div = document.createElement("div");
+      div.className = "ramo";
+      div.textContent = ramo.nombre;
+      div.onclick = () => toggleRamo(div, ramo);
+      columna.appendChild(div);
+    });
 
-  ramos.forEach(ramo => {
-    if (!columnas[ramo.sem]) {
-      const col = document.createElement('div');
-      col.className = 'semestre';
-      col.innerHTML = `<h2>Semestre ${ramo.sem}</h2>`;
-      columnas[ramo.sem] = col;
-      mallaDiv.appendChild(col);
-    }
-
-    const div = document.createElement('div');
-    div.className = 'ramo';
-    div.textContent = ramo.nombre;
-    div.dataset.codigo = ramo.codigo;
-
-    div.onclick = () => {
-      if (div.classList.contains('cursado')) {
-        div.classList.remove('cursado');
-        ramosCursados.delete(ramo.codigo);
-      } else {
-        const faltan = ramo.prerreq.filter(p => !ramosCursados.has(p));
-        if (faltan.length === 0) {
-          div.classList.add('cursado');
-          ramosCursados.add(ramo.codigo);
-        } else {
-          alertaDiv.textContent = `Debes cursar antes: ${faltan.join(', ')}`;
-          setTimeout(() => alertaDiv.textContent = '', 3000);
-          return;
-        }
-      }
-
-      const porcentaje = ((ramosCursados.size / total) * 100).toFixed(1);
-      avanceDiv.textContent = `Avance: ${porcentaje}%`;
-    };
-
-    columnas[ramo.sem].appendChild(div);
+    contenedor.appendChild(columna);
   });
+}
+
+function toggleRamo(elemento, ramo) {
+  const alerta = document.getElementById("alerta");
+  alerta.textContent = "";
+
+  // Validar prerrequisito
+  if (
+    ramo.prerrequisito &&
+    !cursados.has(ramo.prerrequisito)
+  ) {
+    alerta.textContent = `⚠️ Para marcar "${ramo.nombre}", primero debes aprobar "${ramo.prerrequisito}".`;
+    return;
+  }
+
+  if (elemento.classList.contains("cursado")) {
+    elemento.classList.remove("cursado");
+    cursados.delete(ramo.nombre);
+  } else {
+    elemento.classList.add("cursado");
+    cursados.add(ramo.nombre);
+  }
+
+  actualizarAvance();
+}
+
+function actualizarAvance() {
+  let suma = 0;
+  malla.forEach((sem) => {
+    sem.ramos.forEach((r) => {
+      if (cursados.has(r.nombre)) suma += r.creditos;
+    });
+  });
+
+  const porcentaje = ((suma / totalCreditos) * 100).toFixed(1);
+  document.getElementById("avance").textContent = `Avance: ${porcentaje}%`;
 }
 
 crearMalla();
