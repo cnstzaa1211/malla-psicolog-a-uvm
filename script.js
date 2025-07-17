@@ -1,161 +1,176 @@
 const malla = [
   {
-    nombre: "Semestre I",
+    semestre: 1,
     ramos: [
-      { nombre: "Fundamentos Filosóficos de la Psicología", creditos: 4 },
-      { nombre: "Psicología del Desarrollo I", creditos: 4 },
-      { nombre: "Bases Biológicas del Comportamiento", creditos: 4 },
-      { nombre: "Habilidades de Comunicación Efectiva", creditos: 4 },
-      { nombre: "Taller de Introducción a la Profesión", creditos: 4 },
+      { nombre: "Teorías Psicológicas", prerreq: [] },
+      { nombre: "Psicofisiología", prerreq: [] },
+      { nombre: "Bases Socioantropológicas del Comportamiento", prerreq: [] },
+      { nombre: "Expresión Oral y Escrita", prerreq: [] },
+      { nombre: "Gestión Personal", prerreq: [] },
     ],
   },
   {
-    nombre: "Semestre II",
+    semestre: 2,
     ramos: [
-      { nombre: "Psicología del Desarrollo II", creditos: 4 },
-      { nombre: "Psicología Social", creditos: 4 },
-      { nombre: "Taller de Introducción a la Psicología General", creditos: 4 },
-      { nombre: "Bases Filosóficas y Epistemológicas", creditos: 4 },
-      { nombre: "Contexto Histórico de la Psicología", creditos: 4 },
+      { nombre: "Taller de Introducción a la Profesión", prerreq: [] },
+      { nombre: "Neuropsicología", prerreq: ["Psicofisiología"] },
+      { nombre: "Procesos Psicológicos Básicos", prerreq: [] },
+      { nombre: "Herramientas y Métodos Básicos para la Ciencia", prerreq: [] },
+      { nombre: "Pensamiento Lógico-Matemático", prerreq: [] },
     ],
   },
   {
-    nombre: "Semestre III",
+    semestre: 3,
     ramos: [
-      { nombre: "Psicología de la Personalidad", creditos: 4 },
-      { nombre: "Teorías y Sistemas Psicológicos", creditos: 4 },
-      { nombre: "Taller de Desarrollo Personal", creditos: 4 },
-      { nombre: "Inglés I", creditos: 2 },
-      { nombre: "Psicofisiología", creditos: 4 },
+      { nombre: "Taller de Introducción a la Psicología", prerreq: ["Taller de Introducción a la Profesión"] },
+      { nombre: "Psicología del Desarrollo", prerreq: [] },
+      { nombre: "Psicología Social", prerreq: [] },
+      { nombre: "Formación General", prerreq: [] },
+      { nombre: "Inglés I", prerreq: [] },
     ],
   },
   {
-    nombre: "Semestre IV",
+    semestre: 4,
     ramos: [
-      { nombre: "Psicopatología I", creditos: 4 },
-      { nombre: "Neuropsicología", creditos: 4, prerrequisito: "Psicofisiología" },
-      { nombre: "Metodología de la Investigación I", creditos: 4 },
-      { nombre: "Inglés II", creditos: 2 },
-      { nombre: "Taller de Desarrollo Comunitario", creditos: 4 },
+      { nombre: "Metodología de la Investigación", prerreq: [] },
+      { nombre: "Psicología del Aprendizaje", prerreq: [] },
+      { nombre: "Psicología de la Familia y los Grupos", prerreq: [] },
+      { nombre: "Formación General", prerreq: [] },
+      { nombre: "Inglés II", prerreq: ["Inglés I"] },
     ],
   },
   {
-    nombre: "Semestre V",
+    semestre: 5,
     ramos: [
-      { nombre: "Psicopatología II", creditos: 4 },
-      { nombre: "Evaluación Psicológica I", creditos: 4 },
-      { nombre: "Psicología Educacional", creditos: 4 },
-      { nombre: "Inglés III", creditos: 2 },
-      { nombre: "Metodología de la Investigación II", creditos: 4 },
+      { nombre: "Taller de Investigación Cuantitativa", prerreq: ["Metodología de la Investigación"] },
+      { nombre: "Psicología Clínica", prerreq: [] },
+      { nombre: "Seminario de Educación y Psicología", prerreq: [] },
+      { nombre: "Formación General", prerreq: [] },
+      { nombre: "Inglés III", prerreq: ["Inglés II"] },
     ],
   },
   {
-    nombre: "Semestre VI",
+    semestre: 6,
     ramos: [
-      { nombre: "Evaluación Psicológica II", creditos: 4 },
-      { nombre: "Técnicas de Intervención Psicoterapéutica I", creditos: 4 },
-      { nombre: "Psicología Organizacional", creditos: 4 },
-      { nombre: "Psicología Jurídica", creditos: 4 },
-      { nombre: "Inglés IV", creditos: 2 },
+      {
+        nombre: "Taller de Investigación Cualitativa",
+        prerreq: ["Taller de Investigación Cuantitativa", "Metodología de la Investigación"],
+      },
+      { nombre: "Psicopatología", prerreq: ["Psicología Clínica"] },
+      { nombre: "Psicología del Desarrollo Organizacional", prerreq: [] },
+      { nombre: "Formación General", prerreq: [] },
+      { nombre: "Inglés IV", prerreq: ["Inglés III"] },
     ],
   },
   {
-    nombre: "Semestre VII",
+    semestre: 7,
     ramos: [
-      { nombre: "Psicometría", creditos: 4 },
-      { nombre: "Técnicas de Intervención Psicoterapéutica II", creditos: 4 },
-      { nombre: "Optativo Profesional I", creditos: 4 },
-      { nombre: "Ética Profesional", creditos: 4 },
-      { nombre: "Taller de Integración I", creditos: 4 },
+      { nombre: "Taller de Bienestar Psicológico", prerreq: [] },
+      { nombre: "Seminario Clínica Infantojuvenil", prerreq: ["Psicopatología"] },
+      { nombre: "Psicometría", prerreq: [] },
+      { nombre: "Psicología Comunitaria", prerreq: [] },
+      { nombre: "Políticas Públicas y Desarrollo de Capacidades", prerreq: [] },
     ],
   },
   {
-    nombre: "Semestre VIII",
+    semestre: 8,
     ramos: [
-      { nombre: "Intervención en Crisis", creditos: 4 },
-      { nombre: "Optativo Profesional II", creditos: 4 },
-      { nombre: "Evaluación de Intervenciones Psicológicas", creditos: 4 },
-      { nombre: "Taller de Integración II", creditos: 4 },
-      { nombre: "Práctica Profesional I", creditos: 10 },
+      { nombre: "Taller de Investigación de Intervención en Comunidades", prerreq: [] },
+      { nombre: "Psicología Jurídica", prerreq: [] },
+      { nombre: "Evaluación Psicológica", prerreq: [] },
+      { nombre: "Seminario Gestión de Personas", prerreq: [] },
+      { nombre: "Ética Profesional", prerreq: [] },
     ],
   },
   {
-    nombre: "Semestre IX",
+    semestre: 9,
     ramos: [
-      { nombre: "Seminario de Tesis I", creditos: 4 },
-      { nombre: "Supervisión de Práctica Profesional I", creditos: 6 },
-      { nombre: "Práctica Profesional II", creditos: 10 },
+      {
+        nombre: "Práctica Profesional",
+        prerreq: ["Taller de Bienestar Psicológico", "Taller de Investigación de Intervención en Comunidades"],
+      },
+      {
+        nombre: "Taller Clínico Infantojuvenil",
+        prerreq: ["Psicopatología", "Seminario Clínica Infantojuvenil"],
+      },
     ],
   },
   {
-    nombre: "Semestre X",
+    semestre: 10,
     ramos: [
-      { nombre: "Seminario de Tesis II", creditos: 4 },
-      { nombre: "Supervisión de Práctica Profesional II", creditos: 6 },
-      { nombre: "Práctica Profesional III", creditos: 10 },
+      {
+        nombre: "Memoria",
+        prerreq: ["Taller de Investigación Cuantitativa", "Taller de Investigación Cualitativa"],
+      },
+      { nombre: "Taller Clínico Adulto", prerreq: [] },
     ],
   },
 ];
 
-let totalCreditos = 0;
-let cursados = new Set();
+// Estado para saber qué ramos se han marcado como cursados
+const cursados = new Set();
 
 function crearMalla() {
   const contenedor = document.getElementById("malla");
-  malla.forEach((semestre) => {
-    const columna = document.createElement("div");
-    columna.className = "semestre";
-    const titulo = document.createElement("h2");
-    titulo.textContent = semestre.nombre;
-    columna.appendChild(titulo);
-
-    semestre.ramos.forEach((ramo) => {
-      totalCreditos += ramo.creditos;
-      const div = document.createElement("div");
-      div.className = "ramo";
-      div.textContent = ramo.nombre;
-      div.onclick = () => toggleRamo(div, ramo);
-      columna.appendChild(div);
-    });
-
-    contenedor.appendChild(columna);
-  });
-}
-
-function toggleRamo(elemento, ramo) {
   const alerta = document.getElementById("alerta");
-  alerta.textContent = "";
+  const avance = document.getElementById("avance");
 
-  // Validar prerrequisito
-  if (
-    ramo.prerrequisito &&
-    !cursados.has(ramo.prerrequisito)
-  ) {
-    alerta.textContent = `⚠️ Para marcar "${ramo.nombre}", primero debes aprobar "${ramo.prerrequisito}".`;
-    return;
-  }
+  contenedor.innerHTML = ""; // limpiar contenedor
 
-  if (elemento.classList.contains("cursado")) {
-    elemento.classList.remove("cursado");
-    cursados.delete(ramo.nombre);
-  } else {
-    elemento.classList.add("cursado");
-    cursados.add(ramo.nombre);
-  }
+  let totalRamos = 0;
 
-  actualizarAvance();
-}
+  malla.forEach(({ semestre, ramos }) => {
+    const divSemestre = document.createElement("div");
+    divSemestre.className = "semestre";
 
-function actualizarAvance() {
-  let suma = 0;
-  malla.forEach((sem) => {
-    sem.ramos.forEach((r) => {
-      if (cursados.has(r.nombre)) suma += r.creditos;
+    const titulo = document.createElement("h2");
+    titulo.textContent = `Semestre ${semestre}`;
+    divSemestre.appendChild(titulo);
+
+    ramos.forEach(({ nombre, prerreq }) => {
+      totalRamos++;
+
+      const divRamo = document.createElement("div");
+      divRamo.className = "ramo";
+      divRamo.textContent = nombre;
+
+      if (cursados.has(nombre)) {
+        divRamo.classList.add("cursado");
+      }
+
+      divRamo.onclick = () => {
+        // Validar prerrequisitos
+        const faltan = prerreq.filter((pr) => !cursados.has(pr));
+        if (faltan.length > 0) {
+          alerta.textContent = `Debes cursar primero: ${faltan.join(", ")}`;
+          setTimeout(() => (alerta.textContent = ""), 3000);
+          return;
+        }
+
+        if (cursados.has(nombre)) {
+          cursados.delete(nombre);
+          divRamo.classList.remove("cursado");
+        } else {
+          cursados.add(nombre);
+          divRamo.classList.add("cursado");
+        }
+
+        actualizarAvance();
+      };
+
+      divSemestre.appendChild(divRamo);
     });
+
+    contenedor.appendChild(divSemestre);
   });
 
-  const porcentaje = ((suma / totalCreditos) * 100).toFixed(1);
-  document.getElementById("avance").textContent = `Avance: ${porcentaje}%`;
+  // Actualizar avance inicial
+  actualizarAvance();
+
+  function actualizarAvance() {
+    const porcentaje = ((cursados.size / totalRamos) * 100).toFixed(1);
+    avance.textContent = `Avance: ${porcentaje}%`;
+  }
 }
 
-crearMalla();
+document.addEventListener("DOMContentLoaded", crearMalla);
